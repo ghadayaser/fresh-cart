@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 export default function PopularCategories() {
@@ -58,24 +58,25 @@ export default function PopularCategories() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-5xl font-semibold text-yellow-600 mb-8 text-center drop-shadow-lg">
+      <h2 className="text-3xl font-semibold text-yellow-600 mb-6 text-center drop-shadow-lg">
         Shop Popular Categories
       </h2>
       <Slider {...settings}>
         {categories.map((category) => (
           <div
             key={category._id}
-            className="relative group mx-4"
+            className="relative group mx-4 hover:scale-105 transition-transform duration-300"
           >
-            <div className="overflow-hidden rounded-xl shadow-lg transform transition-transform duration-300 group-hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700">
+            <div className="overflow-hidden rounded-xl shadow-lg">
+            
               <img
                 loading="lazy"
                 src={category.image}
                 alt={category.name}
-                className="w-full h-[280px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                className="w-[120px] h-[120px] object-cover rounded-full mx-auto transition-transform duration-500 ease-in-out group-hover:scale-110 object-top"
               />
             </div>
-            <div className="mt-4 text-center">
+            <div className="mt-2 text-center">
               <p className="text-lg font-bold text-gray-600 dark:text-white">{category.name}</p>
             </div>
           </div>
